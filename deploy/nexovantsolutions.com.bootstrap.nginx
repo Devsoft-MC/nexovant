@@ -1,0 +1,17 @@
+# Temporary HTTP-only vhost used to obtain the first Let's Encrypt certificate.
+# Replace this with nexovantsolutions.com.nginx after Certbot succeeds.
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name nexovantsolutions.com www.nexovantsolutions.com;
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+        default_type "text/plain";
+    }
+
+    location / {
+        return 404;
+    }
+}

@@ -1,0 +1,39 @@
+# Install as /etc/nginx/sites-available/nexovantsolutions.com and enable it.
+# Issue the apex + www certificate with Certbot before enabling the TLS block.
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name nexovantsolutions.com www.nexovantsolutions.com;
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+        default_type "text/plain";
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name nexovantsolutions.com www.nexovantsolutions.com;
+
+    ssl_certificate /etc/letsencrypt/live/nexovantsolutions.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/nexovantsolutions.com/privkey.pem;
+
+    root /var/www/nexovantsolutions/current;
+    index index.html;
+
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    location /_next/static/ {
+        try_files $uri =404;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
