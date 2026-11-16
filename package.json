@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "dev": "npm --prefix live-site run dev",
+    "build": "npm --prefix live-site run build",
+    "typecheck": "npm --prefix live-site run typecheck",
+    "dev:next": "next dev",
+    "build:next": "next build",
+    "start:next": "next start",
+    "typecheck:next": "tsc --noEmit"
   },
   "dependencies": {
     "next": "^16.3.4",

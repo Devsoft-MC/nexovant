@@ -4,3 +4,7 @@ node_modules/
 .vercel/
 out/
 .DS_Store
+live-site/dist/
+**/.env
+**/.env.*
+!**/.env.example

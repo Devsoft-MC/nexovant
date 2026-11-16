@@ -1,4 +1,23 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+const pageTitle = "Zoho Consulting & Custom Software Development | Nexovant Solutions";
+const pageDescription = "Nexovant Solutions delivers Zoho CRM implementation, Zoho Creator development, custom web and mobile apps, and business automation for growing companies worldwide. Book a free consultation.";
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    title: pageTitle,
+    description: pageDescription,
+    url: "https://nexovantsolutions.com/",
+    siteName: "Nexovant Solutions",
+    images: [{ url: "/nexovant-social-preview-v2.png", width: 1200, height: 630, alt: "Nexovant Solutions software development and Zoho consulting" }],
+  },
+  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: ["/nexovant-social-preview-v2.png"] },
+};
 
 const faqs = [
   {
@@ -34,8 +53,16 @@ const structuredData = {
     {
       "@type": "ProfessionalService",
       name: "Nexovant Solutions",
-      description: "App development, web development and Zoho solutions.",
-      areaServed: "IN",
+      description: "Zoho consulting, custom web and mobile application development, and business process automation for growing companies.",
+      url: "https://nexovantsolutions.com/",
+      image: "https://nexovantsolutions.com/nexovant-social-preview-v2.png",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Kochi",
+        addressRegion: "Kerala",
+        addressCountry: "IN",
+      },
+      areaServed: "Worldwide",
     },
     {
       "@type": "FAQPage",
@@ -90,13 +117,13 @@ export default function Home() {
             </Link>
             <ul>
               <li><Link href="/services">Services</Link></li>
-              <li><Link href="/projects">Projects</Link></li>
-              <li><Link href="/process">How we work</Link></li>
+              <li><Link href="/projects">Portfolio</Link></li>
+              <li><Link href="/process">Capabilities</Link></li>
               <li><Link href="/about">About</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
-            <Link className="btn sm" href="/contact">Get a free quote</Link>
+            <Link className="btn sm" href="/contact">Book Consultation</Link>
           </nav>
         </div>
       </header>
@@ -104,20 +131,19 @@ export default function Home() {
       <main>
         <div className="hero">
           <div className="wrap">
-            <span className="badge"><b>●</b> App development · Web development · Zoho solutions</span>
-            <h1>Software that makes your business <em>work smarter.</em></h1>
+            <span className="badge"><b>●</b> Zoho Consulting &amp; Custom Software</span>
+            <h1>Software That Makes Your Business <em>Work Smarter</em></h1>
             <p className="lead">
-              Nexovant Solutions builds mobile apps, fast websites and Zoho systems that fit the way
-              your team works. Tell us the problem and we will build the answer.
+              We help growing businesses streamline operations with Zoho solutions, custom applications, and modern web and mobile platforms, built to fit the way your team actually works.
             </p>
             <div className="cta">
-              <Link className="btn" href="/contact">Start your project</Link>
-              <Link className="btn ghost" href="/projects">See our work</Link>
+              <Link className="btn" href="/contact">Book Consultation</Link>
+              <Link className="btn ghost" href="#services">Explore Services</Link>
             </div>
             <div className="perks">
               <span>Free consultation</span>
-              <span>Fixed-price quotes</span>
-              <span>Direct access to developers</span>
+              <span>Zoho and custom software</span>
+              <span>Remote-first delivery</span>
             </div>
           </div>
           <div className="marquee" aria-hidden="true">
@@ -130,34 +156,46 @@ export default function Home() {
 
         <section id="services">
           <div className="wrap">
-            <span className="label">Services</span>
-            <h2>Three things we do really well</h2>
-            <p className="sub">One team for your app, your website and your business systems.</p>
+            <span className="label">What We Do</span>
+            <h2>Six Capabilities. One Accountable Partner.</h2>
+            <p className="sub">From Zoho strategy and implementation to custom web and mobile applications, we design, build, and run the systems your business depends on.</p>
             <div className="bento">
               <div className="tile big">
                 <div>
                   <div className="ic"><PhoneIcon /></div>
-                  <h3>App development</h3>
-                  <p>Android and iOS apps that are smooth to use and easy to maintain.</p>
+                  <h3>Zoho Consulting</h3>
+                  <p>Strategy, process design, and a practical roadmap for getting the most from the Zoho ecosystem across every department.</p>
                 </div>
-                <ul><li>Android and iOS</li><li>Flutter and React Native</li><li>API and backend</li></ul>
+                <ul><li>Zoho Readiness Assessments</li><li>Process Mapping &amp; Design</li><li>Team Adoption &amp; Training</li></ul>
               </div>
               <div className="tile">
                 <div className="ic"><WebIcon /></div>
-                <h3>Web development</h3>
-                <p>Modern, responsive websites and web apps that load fast and rank well.</p>
-                <ul><li>Business websites</li><li>E-commerce stores</li><li>Custom web apps</li></ul>
+                <h3>Zoho Creator Development</h3>
+                <p>Custom business applications built on Zoho Creator, from approval workflows to full operational systems.</p>
+                <ul><li>Custom Creator Applications</li><li>Deluge Scripting</li><li>Forms, Approvals &amp; Reports</li></ul>
               </div>
               <div className="tile">
                 <div className="ic"><WorkflowIcon /></div>
-                <h3>Zoho solutions</h3>
-                <p>Set up and customise Zoho so sales, billing and support run in one place.</p>
-                <ul><li>Zoho CRM and Books</li><li>Workflow automation</li><li>Data migration and training</li></ul>
+                <h3>Zoho CRM Implementation</h3>
+                <p>End-to-end Zoho CRM setup, data migration, and integrations that give sales and service teams one source of truth.</p>
+                <ul><li>Pipeline &amp; Stage Configuration</li><li>Data Migration &amp; Cleanup</li><li>Integrations &amp; Dashboards</li></ul>
               </div>
               <div className="tile wide service-cta">
-                <h3>Not sure what you need?</h3>
-                <p>Tell us the problem. We will suggest the simplest way to solve it and send a fixed-price quote.</p>
-                <div className="service-cta-link"><Link className="btn sm" href="/contact">Talk to us</Link></div>
+                <h3>Custom Web Applications</h3>
+                <p>Secure, scalable web platforms built around your workflows, from internal portals to customer-facing products.</p>
+                <ul><li>Customer &amp; Partner Portals</li><li>Dashboards &amp; Analytics</li><li>API &amp; System Integrations</li></ul>
+              </div>
+              <div className="tile">
+                <div className="ic"><PhoneIcon /></div>
+                <h3>Mobile Application Development</h3>
+                <p>iOS and Android apps for teams and customers, designed for speed in the field and polished on every screen.</p>
+                <ul><li>iOS &amp; Android Apps</li><li>Offline-Ready Field Tools</li><li>App Store Launch Support</li></ul>
+              </div>
+              <div className="tile">
+                <div className="ic"><WorkflowIcon /></div>
+                <h3>Business Automation</h3>
+                <p>Workflow automation that removes manual handoffs, keeps data in sync, and frees people for higher-value work.</p>
+                <ul><li>Approval &amp; Routing Workflows</li><li>Document Automation</li><li>Cross-System Data Sync</li></ul>
               </div>
             </div>
           </div>
@@ -171,15 +209,17 @@ export default function Home() {
             <div>
               <div className="prow">
                 <div className="pi"><PhoneIcon /></div>
-                <h3>FitTrack fitness app</h3>
-                <p>Workout plans, progress charts and reminders for gym members.</p>
-                <div className="ptags"><span>Flutter</span><span>Firebase</span><span>Android and iOS</span></div>
+                <h3>Sales pipeline and quoting unified in Zoho CRM</h3>
+                {/* TODO: Replace with a verified result before launch. */}
+                <p>Verified result to be added before launch.</p>
+                <div className="ptags"><span>Mid-Sized Manufacturer</span><span>Zoho CRM</span></div>
               </div>
               <div className="prow">
                 <div className="pi"><WebIcon /></div>
-                <h3>Spice Route online store</h3>
-                <p>A fast e-commerce site with online payments and order tracking.</p>
-                <div className="ptags"><span>React</span><span>Node.js</span><span>Payments</span></div>
+                <h3>Patient intake and approvals built on Zoho Creator</h3>
+                {/* TODO: Replace with a verified result before launch. */}
+                <p>Verified result to be added before launch.</p>
+                <div className="ptags"><span>Regional Clinic Network</span><span>Zoho Creator</span></div>
               </div>
               <div className="prow">
                 <div className="pi">
@@ -187,9 +227,9 @@ export default function Home() {
                     <path d="M4 19V9m6 10V5m6 14v-7m4 7H2" />
                   </svg>
                 </div>
-                <h3>BuildRight Zoho setup</h3>
-                <p>CRM and invoicing connected, with automatic follow-ups and reports.</p>
-                <div className="ptags"><span>Zoho CRM</span><span>Zoho Books</span><span>Automation</span></div>
+                <h3>Driver app for dispatch and proof of delivery</h3>
+                <p>Proof of delivery captured in a single tap.</p>
+                <div className="ptags"><span>Logistics Operator</span><span>Mobile app</span></div>
               </div>
             </div>
           </div>
@@ -198,13 +238,14 @@ export default function Home() {
         <section id="process">
           <div className="wrap">
             <span className="label">Process</span>
-            <h2>How we work with you</h2>
-            <p className="sub">Simple, clear and no surprises.</p>
+            <h2>The Capabilities Behind Every Engagement</h2>
+            <p className="sub">Five areas where our teams consistently turn complexity into measurable advantage.</p>
             <div className="tl">
-              <div className="ti"><b>1</b><h3>Discuss</h3><p>We listen to your goals and ideas.</p></div>
-              <div className="ti"><b>2</b><h3>Plan</h3><p>You get a clear scope, timeline and fixed price.</p></div>
-              <div className="ti"><b>3</b><h3>Build</h3><p>Regular updates and demos while we develop.</p></div>
-              <div className="ti"><b>4</b><h3>Launch and support</h3><p>We go live together and stay on hand after.</p></div>
+              <div className="ti"><b>1</b><h3>Digital Transformation</h3><p>We re-architect legacy processes into connected, data-driven operating models.</p></div>
+              <div className="ti"><b>2</b><h3>Business Process Automation</h3><p>We eliminate manual handoffs with workflows that run around the clock.</p></div>
+              <div className="ti"><b>3</b><h3>AI Integration</h3><p>We embed practical machine learning and generative AI into everyday business tools.</p></div>
+              <div className="ti"><b>4</b><h3>Cloud Solutions</h3><p>Secure, elastic cloud foundations designed for resilience and predictable cost.</p></div>
+              <div className="ti"><b>5</b><h3>Enterprise Integration</h3><p>We unify ERP, CRM, finance, and field systems into one trusted source of truth.</p></div>
             </div>
           </div>
         </section>
@@ -212,28 +253,26 @@ export default function Home() {
         <section id="why" className="dark">
           <div className="wrap">
             <span className="label">Why us</span>
-            <h2>Why businesses choose Nexovant Solutions</h2>
-            <p className="sub">A small, focused team means faster delivery and a developer who always picks up your call.</p>
+            <h2>Partners Who Stay Accountable After Go-Live</h2>
+            <p className="sub">We measure success by the adoption, performance, and returns that show up months after launch, not by the handover date.</p>
             <div className="why">
-              <div><h3>Fixed-price quotes</h3><p>You know the cost before we start. No hidden charges or surprise invoices.</p></div>
-              <div><h3>Fast and mobile-first</h3><p>Every site and app is built to load quickly and work perfectly on any screen.</p></div>
-              <div><h3>SEO built in</h3><p>Clean code, proper page structure and speed optimisation so customers can find you on Google.</p></div>
-              <div><h3>Clear communication</h3><p>Regular demos and updates in plain language, with no technical jargon.</p></div>
-              <div><h3>Secure by default</h3><p>HTTPS, safe data handling and regular backups on every project.</p></div>
-              <div><h3>Support after launch</h3><p>Maintenance plans so your product keeps running smoothly as you grow.</p></div>
+              <div><h3>Proven Depth</h3><p>Consultants and engineers with hands-on experience across Zoho, custom web, and mobile projects.</p></div>
+              <div><h3>Outcome-Led Delivery</h3><p>Every phase is tied to KPIs you define up front, with transparent reporting through to go-live.</p></div>
+              <div><h3>Built to Last</h3><p>Stable, named teams that learn your business, so you never repeat onboarding.</p></div>
+              <div><h3>Future-Ready Architecture</h3><p>Solutions that grow from a single department to multi-country operations without a rebuild.</p></div>
             </div>
           </div>
         </section>
 
         <section id="tech">
           <div className="wrap">
-            <span className="label">Technology</span>
-            <h2>Technologies we build with</h2>
-            <p className="sub">Modern, proven tools that are easy to maintain and scale.</p>
+            <span className="label">Technology Stack</span>
+            <h2>Proven Platforms, Engineered with Discipline</h2>
+            <p className="sub">We choose the tools that fit your problem and budget, then build on them with production-grade rigour.</p>
             <div className="tech">
-              <span>Flutter</span><span>React Native</span><span>Kotlin</span><span>Swift</span><span>React</span>
-              <span>Next.js</span><span>Node.js</span><span>WordPress</span><span>Shopify</span><span>Firebase</span>
-              <span>MySQL</span><span>Zoho CRM</span><span>Zoho Books</span><span>Zoho Creator</span><span>Zoho Desk</span>
+              <span>Zoho CRM</span><span>Zoho Creator</span><span>Zoho Books</span><span>Deluge</span><span>React</span>
+              <span>Node.js</span><span>Python</span><span>PostgreSQL</span><span>AWS</span><span>Flutter</span>
+              <span>React Native</span><span>Power BI</span>
             </div>
           </div>
         </section>
@@ -241,16 +280,18 @@ export default function Home() {
         <section id="about" className="about-section">
           <div className="wrap about">
             <div>
-              <span className="label">About</span>
-              <h2>Technology partner for growing businesses</h2>
-              <p className="about-intro">Nexovant Solutions is a software company based in Kochi, Kerala. We help shops, clinics, manufacturers, agencies and service businesses move online and run more efficiently.</p>
-              <p>Whether you need a mobile app for your customers, a website that brings in enquiries, or Zoho to organise sales and accounts, we handle design, development and setup from start to finish.</p>
-              <Link className="btn" href="/contact">Talk to our team</Link>
+              <span className="label">About Nexovant Solutions</span>
+              <h2>A Technology Partner Built for Serious Operators</h2>
+              <p className="about-intro">Nexovant Solutions helps growing and mid-market companies modernise how they work. We combine Zoho consulting, Zoho Creator and CRM implementation, custom web and mobile applications, and business automation so your systems, data, and customer experience move in the same direction.</p>
+              <p>Senior architects bring hands-on delivery across Zoho and custom stacks. One accountable team takes each engagement from discovery and design through launch and support, with security, data governance, and documentation built in.</p>
+              <Link className="btn" href="/about">Meet the Team</Link>
             </div>
             <div className="sector">
-              <div><b>Retail and e-commerce</b><span>Online stores, order apps and inventory tracking.</span></div>
-              <div><b>Healthcare and services</b><span>Booking systems, patient apps and customer portals.</span></div>
-              <div><b>Manufacturing and trade</b><span>Zoho CRM, invoicing and sales automation.</span></div>
+              <div><b>Manufacturing</b><span>Production, inventory, and quality workflows on one platform.</span></div>
+              <div><b>Construction</b><span>Project, field team, and document workflows in sync.</span></div>
+              <div><b>Retail</b><span>Sales, stock, and customer data connected across channels.</span></div>
+              <div><b>Healthcare</b><span>Patient intake, approvals, and service workflows.</span></div>
+              <div><b>Logistics</b><span>Dispatch, delivery, and proof of delivery in one flow.</span></div>
             </div>
           </div>
         </section>
@@ -275,12 +316,14 @@ export default function Home() {
 
         <section className="final" id="contact">
           <div className="wrap">
-            <h2>Have an idea? Let us build it.</h2>
-            <p className="sub">Our contact information is being updated. Please check back soon.</p>
+            <span className="label">Contact</span>
+            <h2>Tell Us Where Your Business Needs to Go Next</h2>
+            <p className="sub">Share a few details and a senior consultant will respond within one business day with next steps and a free discovery call.</p>
             <div className="cta">
-              <Link className="btn" href="/contact">Get a free quote</Link>
-              <Link className="btn ghost" href="/projects">See our work</Link>
+              <Link className="btn" href="/contact">Book Consultation</Link>
+              <Link className="btn ghost" href="#services">Explore Services</Link>
             </div>
+            <p className="sub">Response time: within one business day · Remote-first teams across five countries</p>
           </div>
         </section>
       </main>
@@ -290,22 +333,26 @@ export default function Home() {
           <div className="fgrid">
             <div>
               <h3>Nexovant Solutions</h3>
-              <p>App development, web development and Zoho solutions for businesses in Kochi, Kerala and across India.</p>
+              <p>Zoho consulting, custom web and mobile applications, and business automation for companies built to grow.</p>
             </div>
             <div>
               <h3>Services</h3>
-              <Link href="/services">App development</Link>
-              <Link href="/services">Web development</Link>
-              <Link href="/services">Zoho solutions</Link>
+              <Link href="/#services">Zoho Consulting</Link>
+              <Link href="/#services">Zoho CRM Implementation</Link>
+              <Link href="/#services">Zoho Creator Development</Link>
+              <Link href="/#services">Custom Web Applications</Link>
+              <Link href="/#services">Mobile App Development</Link>
+              <Link href="/#services">Business Automation</Link>
             </div>
             <div>
               <h3>Contact</h3>
-              <p>Contact information will be available soon.</p>
+              <p>Free consultation for every new project</p>
+              <p>Remote-first, global delivery</p>
             </div>
           </div>
           <div className="legal">
             <span>© 2026 Nexovant Solutions. All rights reserved.</span>
-            <span>Privacy · Terms</span>
+            <span>Software that moves your business forward.</span>
           </div>
         </div>
       </footer>

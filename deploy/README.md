@@ -1,22 +1,25 @@
-# Nexovant Solutions static deployment
+# Nexovant Solutions live website deployment
 
-The site exports as static HTML into `out/`. It can run on the existing VPS's Nginx without a Node.js service, leaving the existing API proxy untouched.
+The live homepage is the Vite app in `live-site/`. Build that app and deploy its `dist/` output. The separate Next.js app in `app/` is not the version currently served at `nexovantsolutions.com`.
 
-## First deployment
+## Build
 
-1. Build the site with `npm ci && npm run build`.
-2. Copy the contents of `out/` to a new release directory under `/var/www/nexovantsolutions/releases/` on the VPS. Point `/var/www/nexovantsolutions/current` to that release and make the files readable by Nginx.
-3. Install `nexovantsolutions.com.bootstrap.nginx` as `/etc/nginx/sites-available/nexovantsolutions.com`, enable it in `sites-enabled`, run `nginx -t`, then reload Nginx. This temporary vhost only serves ACME challenges for the apex and `www` domains.
-4. Issue the first certificate using the existing Certbot webroot:
+From the repository root:
 
-   ```sh
-   certbot certonly --webroot -w /var/www/certbot \
-     -d nexovantsolutions.com -d www.nexovantsolutions.com \
-     --cert-name nexovantsolutions.com --agree-tos \
-     --register-unsafely-without-email --non-interactive
-   ```
+```sh
+cd live-site
+npm ci
+npm run build
+```
 
-5. Replace the bootstrap vhost with `nexovantsolutions.com.nginx`, run `nginx -t`, and reload Nginx. The final vhost redirects HTTP to HTTPS, continues serving ACME renewal challenges, and serves static files from `/var/www/nexovantsolutions/current`.
-6. Check HTTPS for both domains and confirm that the API host still responds through its existing Nginx proxy.
+The static site is written to `live-site/dist/`. The contact form requires the existing Supabase environment values in the ignored `live-site/.env` file; never commit that file. See `live-site/.env.example` for the required variable names.
 
-The certificate command omits an email address because no certificate-notification address was provided. Certbot renewal can still run through its existing system timer.
+## Publish to the existing VPS
+
+1. Create a new release directory under `/var/www/nexovantsolutions/releases/`.
+2. Copy the contents of `live-site/dist/` into the release directory and ensure Nginx can read the files.
+3. Point `/var/www/nexovantsolutions/current` at the new release.
+4. Run `nginx -t`, then reload Nginx.
+5. Confirm `https://nexovantsolutions.com/`, `https://www.nexovantsolutions.com/`, the contact form, and the API proxy.
+
+The active Nginx site configuration is `nexovantsolutions.com.nginx`. Keep indexing enabled; the live homepage must not send a `noindex` directive. Verify the VPS SSH host key before connecting. Do not bypass host-key checking.

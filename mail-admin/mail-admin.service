@@ -1,0 +1,29 @@
+[Unit]
+Description=Nexovant Mail Administration API
+After=network.target postfix.service dovecot.service
+Wants=postfix.service dovecot.service
+
+[Service]
+Type=simple
+User=mailadmin
+Group=mailadmin
+WorkingDirectory=/opt/nexovant-mail-admin
+EnvironmentFile=/etc/mail-admin.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 /opt/nexovant-mail-admin/server.py
+Restart=on-failure
+RestartSec=3
+UMask=0077
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_NETLINK
+LockPersonality=true
+MemoryDenyWriteExecute=true
+ReadWritePaths=/etc/dovecot /etc/postfix /var/vmail /var/spool/postfix /run/lock /run/dovecot /var/lib/mail-admin
+
+[Install]
+WantedBy=multi-user.target

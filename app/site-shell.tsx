@@ -3,11 +3,10 @@ import type { ReactNode } from "react";
 
 const navItems = [
   { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/process", label: "How we work" },
+  { href: "/projects", label: "Portfolio" },
+  { href: "/process", label: "Capabilities" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function SiteShell({
@@ -36,7 +35,7 @@ export function SiteShell({
               ))}
             </ul>
             <Link className="btn sm" href="/contact">
-              Get a free quote
+              Book Consultation
             </Link>
           </nav>
         </div>
@@ -59,22 +58,26 @@ export function SiteShell({
           <div className="fgrid">
             <div>
               <h3>Nexovant Solutions</h3>
-              <p>App development, web development and Zoho solutions for businesses in Kochi, Kerala and across India.</p>
+              <p>Zoho consulting, custom web and mobile applications, and business automation for companies built to grow.</p>
             </div>
             <div>
               <h3>Services</h3>
-              <Link href="/services">App development</Link>
-              <Link href="/services">Web development</Link>
-              <Link href="/services">Zoho solutions</Link>
+              <Link href="/#services">Zoho Consulting</Link>
+              <Link href="/#services">Zoho CRM Implementation</Link>
+              <Link href="/#services">Zoho Creator Development</Link>
+              <Link href="/#services">Custom Web Applications</Link>
+              <Link href="/#services">Mobile App Development</Link>
+              <Link href="/#services">Business Automation</Link>
             </div>
             <div>
               <h3>Contact</h3>
-              <p>Contact information will be available soon.</p>
+              <p>Free consultation for every new project</p>
+              <p>Remote-first, global delivery</p>
             </div>
           </div>
           <div className="legal">
             <span>© 2026 Nexovant Solutions. All rights reserved.</span>
-            <span>Privacy · Terms</span>
+            <span>Software that moves your business forward.</span>
           </div>
         </div>
       </footer>
